@@ -33,28 +33,30 @@ export const Route = createFileRoute("/")({
 function useProgress(ref: RefObject<HTMLElement | null>) {
   const [p, setP] = useState(0);
   useEffect(() => {
-    let raf = 0;
-    const on = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const el = ref.current;
-        if (!el) return;
-        const r = el.getBoundingClientRect();
-        const total = r.height - window.innerHeight;
-        setP(Math.min(1, Math.max(0, -r.top / (total || 1))));
-      });
+    let raf = 0, cur = -1;
+    const target = () => {
+      const el = ref.current;
+      if (!el) return 0;
+      const r = el.getBoundingClientRect();
+      const total = r.height - window.innerHeight;
+      return Math.min(1, Math.max(0, -r.top / (total || 1)));
     };
-    on();
-    window.addEventListener("scroll", on, { passive: true });
-    window.addEventListener("resize", on);
-    return () => { window.removeEventListener("scroll", on); window.removeEventListener("resize", on); };
+    const tick = () => {
+      const t = target();
+      cur = cur < 0 ? t : cur + (t - cur) * 0.09;
+      if (Math.abs(t - cur) < 0.0002) cur = t;
+      setP(cur);
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
   }, [ref]);
   return p;
 }
 
 /** map p from [a,b] to [0,1], clamped */
 const seg = (p: number, a: number, b: number) => Math.min(1, Math.max(0, (p - a) / (b - a)));
-const ease = (t: number) => t * t * (3 - 2 * t);
+const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
 const svc = [
   { icon: Plane, t: "Air Freight", d: "Express and consolidated air cargo through major global hubs." },
