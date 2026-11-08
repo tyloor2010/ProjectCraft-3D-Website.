@@ -237,7 +237,7 @@ function Index() {
         <div className="sticky top-0 h-screen overflow-hidden">
           <img src={clouds} alt="" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover"
             style={{ opacity: seg(pl, 0, 0.15), transform: `scale(${1.3 - seg(pl, 0, 0.5) * 0.3})` }} />
-          <img src={plane} alt="Cargo airplane seen from above" width={1536} height={1024} className="absolute top-1/2 w-[min(1600px,150vw)] drop-shadow-2xl"
+          <img src={plane} alt="Cargo airplane seen from above" width={1536} height={1024} className="absolute top-1/2 w-[min(1300px,110vw)] [filter:drop-shadow(0_30px_40px_rgba(0,20,60,0.45))]"
             style={{ left: `${-90 + seg(pl, 0.05, 0.5) * 110}%`, transform: "translateY(-50%)" }} />
           <div className="absolute inset-0 bg-background" style={{ opacity: seg(pl, 0.5, 0.62) }} />
           <h2 className="absolute left-6 top-24 text-3xl font-extrabold uppercase leading-[0.95] text-primary md:left-12 md:text-6xl" style={{ opacity: seg(pl, 0.6, 0.72) }}>Trusted by<br />businesses<br />across APAC</h2>
