@@ -155,3 +155,4 @@
 }
 @theme inline { --font-sans: "Archivo", system-ui, sans-serif; --color-ink: var(--ink); --color-ink-foreground: var(--ink-foreground); }
 :root { --ink: oklch(0.16 0.02 250); --ink-foreground: oklch(0.97 0.01 80); }
+@keyframes marquee { to { transform: translateX(-50%); } }
