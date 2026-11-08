@@ -4,9 +4,9 @@ import { PageHero, Shell, services } from "@/components/site";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Meridian Freight" },
+      { title: "Services — Hamoula Freight" },
       { name: "description", content: "Air, ocean, customs, warehousing, project cargo and road transport." },
-      { property: "og:title", content: "Services — Meridian Freight" },
+      { property: "og:title", content: "Services — Hamoula Freight" },
       { property: "og:description", content: "Air, ocean, customs, warehousing, project cargo and road transport." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
