@@ -156,3 +156,6 @@
 @theme inline { --font-sans: "Archivo", system-ui, sans-serif; --color-ink: var(--ink); --color-ink-foreground: var(--ink-foreground); --color-ocean: var(--ocean); }
 :root { --ink: oklch(0.13 0.01 260); --ink-foreground: oklch(0.97 0.004 250); --ocean: oklch(0.27 0.11 262); }
 @keyframes marquee { to { transform: translateX(-50%); } }
+
+h1, h2, h3, .font-display { font-family: "Unbounded", "Archivo", system-ui, sans-serif; letter-spacing: -0.01em; }
+.text-outline { color: transparent; -webkit-text-stroke: 2px color-mix(in oklab, var(--foreground) 12%, transparent); }
