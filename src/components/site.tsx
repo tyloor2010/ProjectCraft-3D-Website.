@@ -14,7 +14,7 @@ export function Shell({ children }: { children: ReactNode }) {
   const nav = "text-sm font-semibold uppercase tracking-wider hover:text-primary";
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
-      <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-5 text-ink-foreground md:px-12">
+      <header className="fixed inset-x-0 top-0 z-40 flex items-center justify-between px-6 py-5 text-background mix-blend-difference md:px-12">
         <Link to="/" className="text-xl font-extrabold tracking-tight">MERIDIAN<span className="text-primary">.</span></Link>
         <nav className="flex gap-6">
           <Link to="/services" className={nav}>Services</Link>
