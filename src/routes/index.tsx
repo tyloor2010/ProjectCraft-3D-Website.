@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type RefObject } from "react";
-import { Plane, Ship, Truck, FileCheck, ArrowUpRight } from "lucide-react";
+import { Plane, Ship, Truck, FileCheck, ArrowUpRight, Warehouse, Container } from "lucide-react";
 import stacker from "@/assets/reach-stacker.png";
 import truck from "@/assets/truck.png";
 import ship from "@/assets/ship-aerial.jpg";
@@ -44,6 +44,8 @@ const svc = [
   { icon: Ship, t: "Ocean Freight", d: "FCL and LCL with reliable schedules and full visibility." },
   { icon: Truck, t: "Road Transport", d: "Our own fleet moving cargo from port to door." },
   { icon: FileCheck, t: "Customs", d: "Licensed brokers handling clearance, duties and compliance." },
+  { icon: Warehouse, t: "Warehousing & 3PL", d: "Storage, pick-and-pack and inventory close to market." },
+  { icon: Container, t: "Project Cargo", d: "Heavy-lift and out-of-gauge moves planned end to end." },
 ];
 
 const highlights = [
@@ -117,14 +119,14 @@ function Index() {
             <img src={truck} alt="Semi-truck carrying a container" width={1920} height={640}
               className="relative -mb-[1.5%] w-[min(560px,60vw)]" style={{ transform: `translateX(${-60 + sp * 170}vw)` }} />
           </div>
-          <div className="relative grid flex-1 content-center gap-4 px-6 md:grid-cols-4 md:px-12">
+          <div className="relative grid flex-1 content-center gap-4 px-6 md:grid-cols-3 md:px-12">
             {svc.map(({ icon: I, t, d }, i) => {
-              const show = sp > 0.1 + i * 0.1;
+              const show = sp > 0.1 + i * 0.08;
               return (
-                <div key={t} className="group rounded-2xl border border-ink-foreground/15 bg-ink-foreground/5 p-6 backdrop-blur transition-all duration-700 hover:-translate-y-2 hover:border-primary hover:bg-primary"
+                <div key={t} className="group rounded-2xl border border-ink-foreground/15 bg-ink-foreground/5 p-5 backdrop-blur transition-all duration-700 hover:-translate-y-2 hover:border-primary hover:bg-primary"
                   style={{ opacity: show ? 1 : 0, transform: show ? undefined : "translateY(40px)" }}>
                   <I className="h-7 w-7" />
-                  <h3 className="mt-8 text-xl font-bold uppercase">{t}</h3>
+                  <h3 className="mt-4 text-lg font-bold uppercase">{t}</h3>
                   <p className="mt-2 text-sm opacity-60 group-hover:opacity-90">{d}</p>
                 </div>
               );
