@@ -104,7 +104,7 @@ function Index() {
   const pl = useProgress(planeRef);
 
   // --- story timeline ---
-  const intro = 1 - seg(p, 0, 0.06);
+  const intro = 1 - seg(p, 0, 0.04);
   const lift = ease(seg(p, 0.02, 0.14));
   const zoom = ease(seg(p, 0.14, 0.32));
   const swap = seg(p, 0.3, 0.36);
@@ -129,8 +129,8 @@ function Index() {
         <div className="sticky top-0 h-screen overflow-hidden">
           {/* intro copy */}
           <div className="absolute inset-x-6 top-24 z-10 flex flex-col justify-between gap-6 md:inset-x-12 md:flex-row" style={{ opacity: intro, transform: `translateY(${(1 - intro) * -40}px)` }}>
-            <h1 className="text-4xl font-extrabold uppercase leading-[0.9] text-foreground md:text-7xl">We move freight.<br />We own<br />the outcome.</h1>
-            <div className="flex gap-8 md:gap-12">
+            <h1 className="text-3xl font-extrabold uppercase leading-[0.9] text-foreground md:text-7xl">We move freight.<br />We own<br />the outcome.</h1>
+            <div className="hidden gap-8 md:flex md:gap-12">
               {[["2,500+", "Shipments per month"], ["98.2%", "On-time delivery"], ["8+", "Years in operation"]].map(([n, l]) => (
                 <div key={l}><p className="text-2xl font-extrabold md:text-4xl">{n}</p><p className="text-[10px] uppercase tracking-wider text-muted-foreground md:text-xs">{l}</p></div>
               ))}
@@ -138,7 +138,7 @@ function Index() {
           </div>
 
           {/* crane scene */}
-          <div className="absolute bottom-[6%] left-1/2 aspect-[1536/1024] w-[min(1000px,110vw,125vh)]"
+          <div className="absolute bottom-[6%] left-1/2 aspect-[1536/1024] w-[min(1000px,92vw,110vh)]"
             style={{ opacity: 1 - swap, transform: `translateX(-50%) scale(${1 + zoom * 2.2})`, transformOrigin: "78% 40%" }}>
             <img src={stacker} alt="Reach stacker" className="absolute inset-0 h-full w-full" style={{ opacity: 1 - seg(zoom, 0.5, 1) }} />
             <img src={stackRow} alt="" className="absolute" style={{ left: "62.5%", top: "67%", width: "34.8%", opacity: 1 - seg(zoom, 0.4, 0.9) }} />
@@ -190,7 +190,7 @@ function Index() {
             <h2 className="text-2xl font-extrabold uppercase leading-[0.9] text-primary md:text-6xl">Reliability<br />at every<br />milestone</h2>
             <p className="mt-4 hidden max-w-xs text-sm text-muted-foreground md:block">From first pickup to final delivery, one accountable team keeps every kilometre on schedule.</p>
           </div>
-          <div className="absolute right-6 top-1/3 max-w-[30vw] space-y-8 text-right md:right-16">
+          <div className="absolute right-6 top-1/3 hidden max-w-[30vw] space-y-8 md:block text-right md:right-16">
             {["Real-time freight tracking", "Dedicated account managers", "Proactive delay alerts"].map((t, i) => (
               <p key={t} className="text-xs font-bold uppercase tracking-wider text-foreground md:text-sm" style={{ opacity: seg(q, 0.35 + i * 0.12, 0.45 + i * 0.12) }}>{t}</p>
             ))}
@@ -232,9 +232,9 @@ function Index() {
       <section ref={planeRef} className="relative h-[200vh] bg-background">
         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
           <h2 className="absolute left-6 top-24 text-4xl font-extrabold uppercase leading-[0.9] text-primary md:left-12 md:text-7xl" style={{ opacity: seg(pl, 0.1, 0.3) }}>Trusted by<br />businesses<br />across APAC</h2>
-          <img src={plane} alt="Cargo airplane" className="absolute w-[min(1100px,120vw)]"
-            style={{ left: `${-60 + pl * 140}%`, top: `${45 - pl * 25}%`, transform: "rotate(-6deg)" }} />
-          <figure className="absolute bottom-16 right-6 max-w-md md:right-16" style={{ opacity: seg(pl, 0.5, 0.7) }}>
+          <img src={plane} alt="Cargo airplane" className="absolute w-[min(1000px,90vw)]"
+            style={{ left: `${-80 + seg(pl, 0, 0.55) * 200}%`, top: `${40 - pl * 20}%`, transform: "rotate(-6deg)" }} />
+          <figure className="absolute bottom-16 left-6 right-16 max-w-md md:left-auto md:right-16" style={{ opacity: seg(pl, 0.55, 0.7) }}>
             <div className="mb-4 grid h-12 w-12 place-items-center rounded-full bg-muted font-bold">TM</div>
             <blockquote className="text-base leading-relaxed text-foreground md:text-lg">“My business wouldn't function without the team. Extremely talented, with immense expertise in each consignment, and dedicated account managers that know us.”</blockquote>
             <figcaption className="mt-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Client name · Company</figcaption>
