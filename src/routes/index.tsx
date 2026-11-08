@@ -149,6 +149,7 @@ function Index() {
           {/* truck scene */}
           <div className="absolute left-1/2 aspect-[1920/640] w-[min(720px,90vw)]"
             style={{
+              zIndex: 5,
               opacity: swap,
               bottom: `${55 * dark + 10 * (1 - dark)}%`,
               transform: `translateX(${-50 + (1 - drive) * 120 + exit * 160}%) scale(${1.8 - settle * 0.8})`,
