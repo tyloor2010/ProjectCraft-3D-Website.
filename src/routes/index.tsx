@@ -107,13 +107,15 @@ function Index() {
       </section>
 
       {/* SERVICES */}
-      <section ref={svcRef} className="relative h-[260vh] bg-ink text-ink-foreground">
-        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
-          <h2 className="pointer-events-none absolute top-16 whitespace-nowrap text-[22vw] font-extrabold uppercase leading-none text-transparent"
-            style={{ WebkitTextStroke: "1px var(--ink-foreground)", opacity: 0.25, transform: `translateX(${-sp * 30}vw)` }}>Services</h2>
-          <img src={truck} alt="Semi-truck carrying a container" width={1920} height={640}
-            className="relative mt-16 w-[min(760px,80vw)]" style={{ transform: `translateX(${-90 + sp * 200}vw)` }} />
-          <div className="relative mt-10 grid gap-4 px-6 md:grid-cols-4 md:px-12">
+      <section ref={svcRef} className="relative h-[300vh] bg-ink text-ink-foreground">
+        <div className="sticky top-0 flex h-screen flex-col overflow-hidden">
+          <div className="relative flex h-[45%] items-end overflow-hidden bg-background">
+            <h2 className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 whitespace-nowrap text-center text-[18vw] font-extrabold uppercase leading-none text-foreground/10 blur-[3px]"
+              style={{ transform: `translate(${-sp * 20}vw, -50%)` }}>Our Services</h2>
+            <img src={truck} alt="Semi-truck carrying a container" width={1920} height={640}
+              className="relative -mb-[1.5%] w-[min(560px,60vw)]" style={{ transform: `translateX(${-60 + sp * 170}vw)` }} />
+          </div>
+          <div className="relative grid flex-1 content-center gap-4 px-6 md:grid-cols-4 md:px-12">
             {svc.map(({ icon: I, t, d }, i) => {
               const show = sp > 0.1 + i * 0.1;
               return (
