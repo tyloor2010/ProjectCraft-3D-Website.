@@ -130,8 +130,8 @@ function Index() {
         <div className="sticky top-0 h-screen overflow-hidden">
           {/* intro copy */}
           <div className="absolute inset-x-6 top-24 z-10 flex flex-col justify-between gap-6 md:inset-x-12 md:flex-row" style={{ opacity: intro, transform: `translateY(${(1 - intro) * -40}px)` }}>
-            <h1 className="text-3xl font-extrabold uppercase leading-[0.9] text-foreground md:text-7xl">We move freight.<br />We own<br />the outcome.</h1>
-            <div className="hidden gap-8 md:flex md:gap-12">
+            <h1 className="text-lg font-extrabold uppercase leading-[0.95] text-foreground md:text-2xl">We own<br />the outcome.</h1>
+            <div className="hidden">
               {[["2,500+", "Shipments per month"], ["98.2%", "On-time delivery"], ["8+", "Years in operation"]].map(([n, l]) => (
                 <div key={l}><p className="text-2xl font-extrabold md:text-4xl">{n}</p><p className="text-[10px] uppercase tracking-wider text-muted-foreground md:text-xs">{l}</p></div>
               ))}
@@ -139,7 +139,7 @@ function Index() {
           </div>
 
           {/* crane scene */}
-          <div className="absolute bottom-[6%] left-1/2 aspect-[1536/1024] w-[min(1000px,92vw,110vh)]"
+          <div className="absolute bottom-[6%] left-1/2 aspect-[1536/1024] w-[min(760px,80vw,90vh)]"
             style={{ opacity: 1 - swap, transform: `translateX(-50%) scale(${1 + zoom * 2.2})`, transformOrigin: "78% 40%" }}>
             <img src={stacker} alt="Reach stacker" className="absolute inset-0 h-full w-full" style={{ opacity: 1 - seg(zoom, 0, 0.4) }} />
             <img src={stackRow} alt="" className="absolute" style={{ left: "62.5%", top: "67%", width: "34.8%", opacity: 1 - seg(zoom, 0, 0.3) }} />
@@ -165,9 +165,9 @@ function Index() {
             <h2 className="absolute left-1/2 top-[18%] -translate-x-1/2 text-center text-2xl font-extrabold uppercase leading-[0.95] md:text-5xl"
               style={{ opacity: seg(p, 0.56, 0.6) * (1 - seg(p, 0.62, 0.66)) }}>Everything freight,<br /><span className="text-primary">under one roof</span></h2>
             <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full border border-ink-foreground/30 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-widest" style={{ opacity: seg(p, 0.56, 0.6) * (1 - exit) }}>Our services</span>
-            <div className="absolute bottom-14 left-0 flex gap-10 pl-[100vw] md:gap-20" style={{ transform: `translateX(${-rail * 100}%)`, opacity: 1 - exit }}>
+            <div className="absolute bottom-14 left-0 flex gap-16 pl-[100vw] md:gap-40" style={{ transform: `translateX(${-rail * 100}%)`, opacity: 1 - exit }}>
               {svc.map(({ icon: I, t, d }) => (
-                <div key={t} className="group w-52 shrink-0 cursor-default md:w-60">
+                <div key={t} className="group w-56 shrink-0 cursor-default md:w-72">
                   <I className="h-6 w-6 text-ink-foreground/70 transition group-hover:text-primary" />
                   <h3 className="mt-4 text-sm font-extrabold uppercase leading-tight">{t}</h3>
                   <p className="mt-2 text-xs opacity-50 transition group-hover:opacity-90">{d}</p>
@@ -237,8 +237,8 @@ function Index() {
         <div className="sticky top-0 h-screen overflow-hidden">
           <img src={clouds} alt="" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover"
             style={{ opacity: seg(pl, 0, 0.15), transform: `scale(${1.3 - seg(pl, 0, 0.5) * 0.3})` }} />
-          <img src={plane} alt="Cargo airplane seen from above" width={1536} height={1024} className="absolute top-1/2 w-[min(1100px,110vw)] drop-shadow-2xl"
-            style={{ left: `${-110 + ease(seg(pl, 0.05, 0.5)) * 140}%`, transform: "translateY(-50%)" }} />
+          <img src={plane} alt="Cargo airplane seen from above" width={1536} height={1024} className="absolute top-1/2 w-[min(1600px,150vw)] drop-shadow-2xl"
+            style={{ left: `${-150 + seg(pl, 0.02, 0.55) * 170}%`, transform: "translateY(-50%)" }} />
           <div className="absolute inset-0 bg-background" style={{ opacity: seg(pl, 0.5, 0.62) }} />
           <h2 className="absolute left-6 top-24 text-3xl font-extrabold uppercase leading-[0.95] text-primary md:left-12 md:text-6xl" style={{ opacity: seg(pl, 0.6, 0.72) }}>Trusted by<br />businesses<br />across APAC</h2>
           <figure className="absolute bottom-16 left-6 right-16 flex max-w-2xl flex-col gap-6 md:left-auto md:right-16 md:flex-row" style={{ opacity: seg(pl, 0.68, 0.8), transform: `translateY(${(1 - seg(pl, 0.68, 0.8)) * 30}px)` }}>
