@@ -18,9 +18,9 @@ import { Shell } from "@/components/site";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Meridian Freight — Every leg of the journey" },
+      { title: "Hamoula Freight — Every leg of the journey" },
       { name: "description", content: "Freight forwarding, land transport and customs brokerage under one accountable team." },
-      { property: "og:title", content: "Meridian Freight — Every leg of the journey" },
+      { property: "og:title", content: "Hamoula Freight — Every leg of the journey" },
       { property: "og:description", content: "Freight forwarding, land transport and customs brokerage under one accountable team." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
