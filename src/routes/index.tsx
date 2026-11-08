@@ -145,7 +145,7 @@ function Index() {
           <div className="relative w-[18vw] max-w-[180px] bg-ink">
             <div className="absolute inset-y-0 left-1/2 w-0 -translate-x-1/2 border-l-2 border-dashed border-ink-foreground/30" />
             <div className="absolute left-1/2 w-[34%] -translate-x-1/2" style={{ top: `${-20 + rp * 120}%` }}>
-              <div className="h-4 rounded-t-sm bg-foreground" />
+              <div className="h-5 rounded-t-md bg-muted-foreground" />
               <div className="mt-0.5 h-40 rounded-sm border border-border bg-card" />
             </div>
           </div>
@@ -166,7 +166,7 @@ function Index() {
           <img src={ship} alt="Aerial view of a container ship at sea" width={1920} height={1088} loading="lazy"
             className="absolute inset-0 h-full w-full object-cover" style={{ transform: `scale(${Math.max(1, 5 - shp * 8)})`, transformOrigin: "50% 42%" }} />
           <div className="absolute inset-0 bg-ocean/30" />
-          <div className="absolute left-1/2 top-[58%] w-64 -translate-x-1/2 text-center" style={{ opacity: shp > 0.8 ? 1 : 0, transition: "opacity .7s" }}>
+          <div className="absolute left-1/2 top-[72%] w-64 -translate-x-1/2 text-center" style={{ opacity: shp > 0.8 ? 1 : 0, transition: "opacity .7s" }}>
             <p className="text-2xl font-bold">»</p>
             <h3 className="text-lg font-extrabold uppercase">Fast issue resolution</h3>
             <p className="mt-2 text-sm opacity-75">When something doesn't go to plan, we act fast and keep you informed every step.</p>
