@@ -211,7 +211,7 @@ function Index() {
           <div className="absolute inset-0 bg-ocean/10" />
           <h2 className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center text-3xl font-extrabold uppercase leading-[1] drop-shadow-lg md:text-6xl"
             style={{ opacity: seg(s, 0.15, 0.25) * (1 - seg(s, 0.45, 0.52)) }}>Logistics that works<br />as hard as you do.</h2>
-          <div className="absolute inset-0 mx-auto grid max-w-5xl grid-cols-2 content-center gap-x-[18vw] gap-y-[14vh] px-6">
+          <div className="absolute inset-0 mx-auto grid max-w-5xl grid-cols-2 content-center gap-x-[28vw] gap-y-[14vh] px-6">
             {highlights.map(({ icon: I, t, d }, i) => {
               const v = seg(s, 0.52 + i * 0.05, 0.6 + i * 0.05) * (1 - seg(s, 0.85, 0.9));
               return (
