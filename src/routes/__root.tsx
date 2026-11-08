@@ -91,7 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Unbounded:wght@500;700;800&display=swap" },
       {
         rel: "stylesheet",
         href: appCss,

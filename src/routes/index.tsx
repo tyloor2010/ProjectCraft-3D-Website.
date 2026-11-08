@@ -10,8 +10,9 @@ import stackRow from "@/assets/stack-row.png";
 import chassis from "@/assets/truck-chassis.png";
 import truckBox from "@/assets/truck-container.png";
 import truckTop from "@/assets/truck-top.png";
-import ship from "@/assets/ship-aerial.jpg";
-import plane from "@/assets/plane.png";
+import ship from "@/assets/ship-vertical.jpg";
+import plane from "@/assets/plane-top.png";
+import clouds from "@/assets/clouds.jpg";
 import { Shell } from "@/components/site";
 
 export const Route = createFileRoute("/")({
@@ -157,11 +158,13 @@ function Index() {
             <img src={truckBox} alt="" className="absolute" style={{ left: "2.3%", width: "65.9%", top: `${19.5 - (1 - drop) * 60}%`, opacity: drop > 0 ? 1 : 0 }} />
           </div>
 
+          <p className="absolute left-6 top-20 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground md:left-12" style={{ opacity: dark }}>{Math.round(drive * 55)} km/h</p>
           {/* dark lower half + services */}
           <div className="absolute inset-x-0 bottom-0 bg-ink text-ink-foreground" style={{ height: `${dark * 55 + exit * 45}%` }}>
-            <p className="absolute left-6 top-8 text-2xl font-extrabold uppercase leading-[0.95] text-primary md:left-12 md:top-12 md:text-5xl"
-              style={{ opacity: seg(p, 0.56, 0.62) * (1 - exit) }}>Everything freight,<br />under one roof</p>
-            <div className="absolute bottom-10 left-0 flex gap-10 pl-[100vw] md:gap-20" style={{ transform: `translateX(${-rail * 100}%)`, opacity: 1 - exit }}>
+            <h2 className="absolute left-1/2 top-[18%] -translate-x-1/2 text-center text-2xl font-extrabold uppercase leading-[0.95] md:text-5xl"
+              style={{ opacity: seg(p, 0.56, 0.6) * (1 - seg(p, 0.62, 0.66)) }}>Everything freight,<br /><span className="text-primary">under one roof</span></h2>
+            <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full border border-ink-foreground/30 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-widest" style={{ opacity: seg(p, 0.56, 0.6) * (1 - exit) }}>Our services</span>
+            <div className="absolute bottom-14 left-0 flex gap-10 pl-[100vw] md:gap-20" style={{ transform: `translateX(${-rail * 100}%)`, opacity: 1 - exit }}>
               {svc.map(({ icon: I, t, d }) => (
                 <div key={t} className="group w-52 shrink-0 cursor-default md:w-60">
                   <I className="h-6 w-6 text-ink-foreground/70 transition group-hover:text-primary" />
@@ -173,7 +176,7 @@ function Index() {
           </div>
 
           {/* ghost SERVICES word */}
-          <h2 aria-hidden className="pointer-events-none absolute top-[18%] whitespace-nowrap text-[24vw] font-extrabold uppercase leading-none text-foreground/[0.07] blur-[2px]"
+          <h2 aria-hidden className="text-outline pointer-events-none absolute top-[8%] -z-0 whitespace-nowrap text-[22vw] font-extrabold uppercase leading-none"
             style={{ transform: `translateX(${60 - rail * 120}vw)`, opacity: dark * (1 - exit) }}>Our Services</h2>
         </div>
       </section>
@@ -201,11 +204,11 @@ function Index() {
       {/* 3. SHIP */}
       <section ref={shipRef} className="relative h-[400vh] bg-ocean text-ink-foreground">
         <div className="sticky top-0 h-screen overflow-hidden">
-          <img src={ship} alt="Aerial view of a container ship at sea" width={1920} height={1088}
-            className="absolute inset-0 h-full w-full object-cover"
-            style={{ transform: `scale(${1 + (1 - ease(seg(s, 0, 0.5))) * 6})`, transformOrigin: "50% 40%" }} />
-          <div className="absolute inset-0 bg-ocean/20" />
-          <h2 className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center text-4xl font-extrabold uppercase leading-[0.95] md:text-7xl"
+          <img src={ship} alt="Aerial view of a container ship at sea" width={1024} height={1920}
+            className="absolute left-1/2 top-1/2 h-[140vh] w-auto max-w-none [mask-image:linear-gradient(90deg,transparent,#000_25%,#000_75%,transparent)]"
+            style={{ transform: `translate(-50%,-50%) scale(${1 + (1 - ease(seg(s, 0, 0.5))) * 3.5})`, transformOrigin: "50% 45%" }} />
+          <div className="absolute inset-0 bg-ocean/10" />
+          <h2 className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center text-3xl font-extrabold uppercase leading-[1] drop-shadow-lg md:text-6xl"
             style={{ opacity: seg(s, 0.15, 0.25) * (1 - seg(s, 0.45, 0.52)) }}>Logistics that works<br />as hard as you do.</h2>
           <div className="absolute inset-0 mx-auto grid max-w-5xl grid-cols-2 content-center gap-x-[18vw] gap-y-[14vh] px-6">
             {highlights.map(({ icon: I, t, d }, i) => {
@@ -228,16 +231,21 @@ function Index() {
         </div>
       </section>
 
-      {/* 4. PLANE + TESTIMONIALS */}
-      <section ref={planeRef} className="relative h-[200vh] bg-background">
-        <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-          <h2 className="absolute left-6 top-24 text-4xl font-extrabold uppercase leading-[0.9] text-primary md:left-12 md:text-7xl" style={{ opacity: seg(pl, 0.1, 0.3) }}>Trusted by<br />businesses<br />across APAC</h2>
-          <img src={plane} alt="Cargo airplane" className="absolute w-[min(1000px,90vw)]"
-            style={{ left: `${-80 + seg(pl, 0, 0.55) * 200}%`, top: `${40 - pl * 20}%`, transform: "rotate(-6deg)" }} />
-          <figure className="absolute bottom-16 left-6 right-16 max-w-md md:left-auto md:right-16" style={{ opacity: seg(pl, 0.55, 0.7) }}>
-            <div className="mb-4 grid h-12 w-12 place-items-center rounded-full bg-muted font-bold">TM</div>
-            <blockquote className="text-base leading-relaxed text-foreground md:text-lg">“My business wouldn't function without the team. Extremely talented, with immense expertise in each consignment, and dedicated account managers that know us.”</blockquote>
-            <figcaption className="mt-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Client name · Company</figcaption>
+      {/* 4. CLOUDS + PLANE, then TESTIMONIAL */}
+      <section ref={planeRef} className="relative h-[300vh] bg-ocean">
+        <div className="sticky top-0 h-screen overflow-hidden">
+          <img src={clouds} alt="" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover"
+            style={{ opacity: seg(pl, 0, 0.15), transform: `scale(${1.3 - seg(pl, 0, 0.5) * 0.3})` }} />
+          <img src={plane} alt="Cargo airplane seen from above" width={1536} height={1024} className="absolute top-1/2 w-[min(1100px,110vw)] drop-shadow-2xl"
+            style={{ left: `${-110 + ease(seg(pl, 0.05, 0.5)) * 140}%`, transform: "translateY(-50%)" }} />
+          <div className="absolute inset-0 bg-background" style={{ opacity: seg(pl, 0.5, 0.62) }} />
+          <h2 className="absolute left-6 top-24 text-3xl font-extrabold uppercase leading-[0.95] text-primary md:left-12 md:text-6xl" style={{ opacity: seg(pl, 0.6, 0.72) }}>Trusted by<br />businesses<br />across APAC</h2>
+          <figure className="absolute bottom-16 left-6 right-16 flex max-w-2xl flex-col gap-6 md:left-auto md:right-16 md:flex-row" style={{ opacity: seg(pl, 0.68, 0.8), transform: `translateY(${(1 - seg(pl, 0.68, 0.8)) * 30}px)` }}>
+            <div className="grid h-20 w-20 shrink-0 place-items-center rounded-sm bg-muted text-lg font-bold">TM</div>
+            <div>
+              <blockquote className="text-base leading-relaxed text-foreground md:text-lg">“My business wouldn't function without the team. Extremely talented, with immense expertise in each consignment, and dedicated account managers that know us.”</blockquote>
+              <figcaption className="mt-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Client name · Company</figcaption>
+            </div>
           </figure>
         </div>
       </section>
