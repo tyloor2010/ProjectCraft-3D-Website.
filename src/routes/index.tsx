@@ -100,7 +100,7 @@ function Index() {
             <Link to="/contact" className="mt-4 inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background hover:bg-primary">Talk with us <ArrowUpRight className="h-4 w-4" /></Link>
           </div>
           <img src={stacker} alt="Reach stacker lifting a white container onto blue and red containers" width={1536} height={1024}
-            className="relative w-[min(900px,92vw)] transition-transform duration-300 ease-out"
+            className="relative w-[min(720px,80vw)] self-end md:mr-12 transition-transform duration-300 ease-out"
             style={{ transform: `translate(${tilt.x * -12}px, ${hp * -120 + tilt.y * -6}px) scale(${1 + hp * 0.25})` }} />
           <div className="h-3 w-full bg-foreground/10" />
         </div>
@@ -111,7 +111,7 @@ function Index() {
         <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
           <h2 className="pointer-events-none absolute top-16 whitespace-nowrap text-[22vw] font-extrabold uppercase leading-none text-transparent"
             style={{ WebkitTextStroke: "1px var(--ink-foreground)", opacity: 0.25, transform: `translateX(${-sp * 30}vw)` }}>Services</h2>
-          <img src={truck} alt="Semi-truck carrying a container" width={1920} height={640} loading="lazy"
+          <img src={truck} alt="Semi-truck carrying a container" width={1920} height={640}
             className="relative mt-16 w-[min(760px,80vw)]" style={{ transform: `translateX(${-90 + sp * 200}vw)` }} />
           <div className="relative mt-10 grid gap-4 px-6 md:grid-cols-4 md:px-12">
             {svc.map(({ icon: I, t, d }, i) => {
