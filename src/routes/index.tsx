@@ -107,7 +107,7 @@ function Index() {
   const intro = 1 - seg(p, 0, 0.04);
   const lift = ease(seg(p, 0.02, 0.14));
   const zoom = ease(seg(p, 0.14, 0.32));
-  const swap = seg(p, 0.3, 0.36);
+  const swap = seg(p, 0.31, 0.33);
   const drive = ease(seg(p, 0.3, 0.4));
   const drop = ease(seg(p, 0.38, 0.46));
   const settle = ease(seg(p, 0.44, 0.54));
@@ -140,8 +140,8 @@ function Index() {
           {/* crane scene */}
           <div className="absolute bottom-[6%] left-1/2 aspect-[1536/1024] w-[min(1000px,92vw,110vh)]"
             style={{ opacity: 1 - swap, transform: `translateX(-50%) scale(${1 + zoom * 2.2})`, transformOrigin: "78% 40%" }}>
-            <img src={stacker} alt="Reach stacker" className="absolute inset-0 h-full w-full" style={{ opacity: 1 - seg(zoom, 0.5, 1) }} />
-            <img src={stackRow} alt="" className="absolute" style={{ left: "62.5%", top: "67%", width: "34.8%", opacity: 1 - seg(zoom, 0.4, 0.9) }} />
+            <img src={stacker} alt="Reach stacker" className="absolute inset-0 h-full w-full" style={{ opacity: 1 - seg(zoom, 0, 0.4) }} />
+            <img src={stackRow} alt="" className="absolute" style={{ left: "62.5%", top: "67%", width: "34.8%", opacity: 1 - seg(zoom, 0, 0.3) }} />
             <img src={boxWhite} alt="White shipping container" className="absolute" style={{ left: "62.6%", width: "30.1%", top: `${51.4 - lift * 19.2}%` }} />
           </div>
 
@@ -220,7 +220,7 @@ function Index() {
               );
             })}
           </div>
-          <div className="absolute left-1/2 top-1/2 w-64 -translate-x-1/2 -translate-y-1/2 text-center" style={{ opacity: seg(s, 0.9, 0.96) }}>
+          <div className="absolute left-1/2 top-[22%] w-64 -translate-x-1/2 text-center" style={{ opacity: seg(s, 0.9, 0.96) }}>
             <ChevronsRight className="mx-auto h-6 w-6" />
             <h3 className="mt-2 text-lg font-extrabold uppercase">Fast issue resolution</h3>
             <p className="mt-2 text-xs opacity-75">When something unexpected happens, we don't point fingers — we act fast and keep you informed.</p>
