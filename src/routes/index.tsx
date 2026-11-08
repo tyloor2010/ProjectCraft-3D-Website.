@@ -81,6 +81,8 @@ function Index() {
   const hp = useProgress(heroRef);
   const sp = useProgress(svcRef);
   const shp = useProgress(shipRef);
+  const relRef = useRef<HTMLElement>(null);
+  const rp = useProgress(relRef);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
   return (
@@ -131,12 +133,42 @@ function Index() {
         </div>
       </section>
 
+      {/* RELIABILITY — top-down road */}
+      <section ref={relRef} className="relative h-[220vh] bg-background">
+        <div className="sticky top-0 grid h-screen grid-cols-[1fr_auto_1fr] overflow-hidden">
+          <div className="flex flex-col justify-center px-6 md:px-12" style={{ opacity: Math.min(1, rp * 3), transform: `translateX(${(1 - Math.min(1, rp * 3)) * -60}px)` }}>
+            <h2 className="text-4xl font-extrabold uppercase leading-[0.9] text-primary md:text-7xl">Reliability<br />at every<br />mile</h2>
+            <p className="mt-6 max-w-sm text-muted-foreground">From first pickup to final delivery, one accountable team keeps every kilometre on schedule.</p>
+          </div>
+          <div className="relative w-[18vw] max-w-[180px] bg-ink">
+            <div className="absolute inset-y-0 left-1/2 w-0 -translate-x-1/2 border-l-2 border-dashed border-ink-foreground/30" />
+            <div className="absolute left-1/2 w-[34%] -translate-x-1/2" style={{ top: `${-20 + rp * 120}%` }}>
+              <div className="h-4 rounded-t-sm bg-foreground" />
+              <div className="mt-0.5 h-40 rounded-sm border border-border bg-card" />
+            </div>
+          </div>
+          <div className="flex flex-col justify-center gap-10 px-6 md:px-12">
+            {[["2,500+", "Shipments per month"], ["98.2%", "On-time delivery rate"], ["8+", "Years in operation"]].map(([n, l], i) => (
+              <div key={l} className="transition-all duration-700" style={{ opacity: rp > 0.2 + i * 0.15 ? 1 : 0, transform: rp > 0.2 + i * 0.15 ? "none" : "translateY(30px)" }}>
+                <p className="text-5xl font-extrabold text-foreground">{n}</p>
+                <p className="text-sm uppercase tracking-wider text-muted-foreground">{l}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* SHIP */}
       <section ref={shipRef} className="relative h-[300vh] bg-ocean text-ink-foreground">
         <div className="sticky top-0 h-screen overflow-hidden">
           <img src={ship} alt="Aerial view of a container ship at sea" width={1920} height={1088} loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover" style={{ transform: `scale(${1.4 - shp * 0.4}) translateY(${(0.5 - shp) * 10}%)` }} />
+            className="absolute inset-0 h-full w-full object-cover" style={{ transform: `scale(${Math.max(1, 5 - shp * 8)})`, transformOrigin: "50% 42%" }} />
           <div className="absolute inset-0 bg-ocean/30" />
+          <div className="absolute left-1/2 top-[58%] w-64 -translate-x-1/2 text-center" style={{ opacity: shp > 0.8 ? 1 : 0, transition: "opacity .7s" }}>
+            <p className="text-2xl font-bold">»</p>
+            <h3 className="text-lg font-extrabold uppercase">Fast issue resolution</h3>
+            <p className="mt-2 text-sm opacity-75">When something doesn't go to plan, we act fast and keep you informed every step.</p>
+          </div>
           <h2 className="absolute left-1/2 top-24 -translate-x-1/2 text-center text-3xl font-extrabold uppercase md:text-5xl" style={{ opacity: Math.min(1, shp * 4) }}>Reliability at every mile</h2>
           <div className="absolute inset-0 mx-auto grid max-w-6xl grid-cols-1 content-center gap-x-[24vw] gap-y-16 px-6 pt-24 md:grid-cols-2">
             {highlights.map(([t, d], i) => {
@@ -152,6 +184,15 @@ function Index() {
             })}
           </div>
         </div>
+      </section>
+
+      {/* TESTIMONIAL */}
+      <section className="grid gap-12 bg-background px-6 py-32 md:grid-cols-2 md:px-12">
+        <h2 className="text-5xl font-extrabold uppercase leading-[0.9] text-primary md:text-7xl">Trusted by businesses across APAC</h2>
+        <figure className="self-end">
+          <blockquote className="text-xl leading-relaxed text-foreground">“My business wouldn't function without the team. Extremely talented, with immense expertise in each consignment — dedicated account managers who know us and respond fast.”</blockquote>
+          <figcaption className="mt-6 text-sm font-semibold uppercase tracking-wider text-muted-foreground">Client name · Company</figcaption>
+        </figure>
       </section>
 
       {/* CTA */}
