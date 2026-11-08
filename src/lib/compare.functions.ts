@@ -15,7 +15,6 @@ export const compareDesign = createServerFn({ method: "POST" })
       const stream = await streamResponse({
         model: "openai/gpt-6-astra",
         reasoning: { effort: "medium" },
-        store: false,
         instructions:
           "You are a senior web designer. Image 1 is a screenshot of the user's website. Image 2 is a frame from the reference video they want to copy exactly. List every visible difference (layout, positions, sizes, colors, fonts, imagery, spacing, motion cues) and give a concrete fix for each, most important first. Use short markdown sections: '## Biggest differences', '## Fixes', '## Smaller details'. Be specific with positions and sizes.",
         input: [
