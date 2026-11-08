@@ -19,6 +19,7 @@ export function Shell({ children }: { children: ReactNode }) {
         <nav className="flex gap-6">
           <Link to="/services" className={nav}>Services</Link>
           <Link to="/contact" className={nav}>Contact</Link>
+          <Link to="/compare" className={nav}>Compare</Link>
         </nav>
       </header>
       {children}
