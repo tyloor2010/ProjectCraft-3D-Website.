@@ -138,8 +138,8 @@ function Index() {
           </div>
 
           {/* crane scene */}
-          <div className="absolute bottom-[6%] left-1/2 aspect-[1536/1024] w-[min(1000px,110vw)] -translate-x-[55%]"
-            style={{ opacity: 1 - swap, transform: `translateX(-55%) scale(${1 + zoom * 2.2})`, transformOrigin: "78% 40%" }}>
+          <div className="absolute bottom-[6%] left-1/2 aspect-[1536/1024] w-[min(1000px,110vw,125vh)]"
+            style={{ opacity: 1 - swap, transform: `translateX(-50%) scale(${1 + zoom * 2.2})`, transformOrigin: "78% 40%" }}>
             <img src={stacker} alt="Reach stacker" className="absolute inset-0 h-full w-full" style={{ opacity: 1 - seg(zoom, 0.5, 1) }} />
             <img src={stackRow} alt="" className="absolute" style={{ left: "62.5%", top: "67%", width: "34.8%", opacity: 1 - seg(zoom, 0.4, 0.9) }} />
             <img src={boxWhite} alt="White shipping container" className="absolute" style={{ left: "62.6%", width: "30.1%", top: `${51.4 - lift * 19.2}%` }} />
